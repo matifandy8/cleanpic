@@ -1,0 +1,15 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Start Live Server",
+      "type": "shell",
+      "command": "npm run dev", // Command to start the live server
+      "problemMatcher": [],
+      "isBackground": true,
+      "runOptions": {
+        "runOn": "folderOpen" // Automatically runs when the folder is opened
+      }
+    }
+  ]
+}
