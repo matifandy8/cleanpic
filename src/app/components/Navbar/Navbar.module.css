@@ -1,0 +1,92 @@
+.nav {
+  position: fixed !important;
+  width: 100%;
+  height: 50px;
+  top: 0;
+  padding: 5px 0;
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  background: #fff !important;
+  box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.05);
+  z-index: 99999;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.nav > .navheader {
+  display: inline;
+}
+
+.nav > .navheader > .navtitle {
+  display: inline-block;
+  font-size: 22px;
+  color: #fff;
+  padding: 10px 10px 10px 10px;
+}
+
+.nav > .navbtn {
+  display: none;
+}
+
+.nav > .navlinks {
+  display: inline;
+  font-size: 18px;
+}
+
+.nav > .navlinks > .navlink {
+  display: inline-block;
+  padding: 10px;
+}
+
+.navcheck {
+  display: none;
+}
+
+@media (max-width: 600px) {
+  .nav > .navbtn {
+    display: inline-block;
+    position: absolute;
+    right: 0px;
+    top: 0px;
+  }
+  .navtoggle {
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    padding: 13px;
+  }
+  .navtoggle:hover,
+  .navcheck:checked ~ .navtoggle {
+    background-color: rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+  }
+  .navtoggle > span {
+    display: block;
+    width: 25px;
+    height: 10px;
+    border-top: 2px solid #000000;
+  }
+  .nav > .navlinks {
+    position: absolute;
+    display: block;
+    width: 100%;
+    background-color: #e1e1e1;
+    height: 0px;
+    transition: all 0.3s ease-in;
+    overflow-y: hidden;
+    top: 50px;
+    left: 0px;
+  }
+  .nav > .navlinks > a {
+    display: block;
+    width: 100%;
+  }
+  .navcheck:not(:checked) ~ .navlinks {
+    height: 0px;
+  }
+  .navcheck:checked ~ .navlinks {
+    height: calc(100vh - 50px);
+    overflow-y: auto;
+  }
+}
