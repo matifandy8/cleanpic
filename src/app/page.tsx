@@ -3,12 +3,14 @@
 import { useState } from "react";
 import FileUpload from "./components/FileUpload/FileUpload";
 import styles from "./page.module.css";
-import Image from "next/image";
+import ImagePreview from "./components/ImagePreview/ImagePreview";
 
 export default function Home() {
   const [file, setFile] = useState<File>();
 
-  console.log(file);
+  const onClearMetadata = () => {
+    console.log("Metadata cleared");
+  };
 
   return (
     <main className={styles.main}>
@@ -19,29 +21,17 @@ export default function Home() {
         reduce the image file size.
       </p>
       <FileUpload setFile={setFile} />
-      {file && (
-        <div className={styles.imageContainer}>
-          <Image
-            src={URL.createObjectURL(file)}
-            alt="CleanPic"
-            width={300}
-            height={200}
-            objectFit="contain"
-          />
-          <div className={styles.fileDetails}>
-            <p>File: {file?.name}</p>
-            <p>Size: {file?.size}</p>
-            <p>Type: {file?.type}</p>
-            <p>Last Modified: {file?.lastModified}</p>
-          </div>
-          <button>Download Cleared Image</button>
-        </div>
-      )}
+      {file && <ImagePreview file={file} onClearMetadata={onClearMetadata} />}
       <div className={styles.howtouse}>
-        <h2>How to remove EXIF metadata from your photos and images</h2>
-        <ol>
-          <li>Upload a photo or image file</li>
-          <li>Download cleared photo</li>
+        <h2 className={styles.howtouseTitle}>
+          How to use CleanPic to remove EXIF metadata from your photos and
+          images
+        </h2>
+        <ol className={styles.howtouseList}>
+          <li className={styles.howtouseListItem}>
+            Upload your photo or image file
+          </li>
+          <li className={styles.howtouseListItem}>Download cleared photo</li>
         </ol>
       </div>
     </main>

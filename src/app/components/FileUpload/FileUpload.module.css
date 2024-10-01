@@ -4,7 +4,7 @@
   margin: 20px auto;
   text-align: center;
   line-height: 200px;
-  border: 2px dashed #ccc;
+  border: 2px dashed var(--primary-color);
   cursor: pointer;
 }
 
@@ -13,6 +13,20 @@
 }
 
 .dragging {
-  border-color: #007bff;
-  background-color: rgba(0, 123, 255, 0.1);
+  border-color: var(--primary-color);
+  background-color: var(--secondary-color);
+}
+
+.error {
+  color: red;
+  margin-top: 10px;
+  font-size: 14px;
+  text-align: center;
+}
+
+.success {
+  color: green;
+  margin-top: 10px;
+  font-size: 14px;
+  text-align: center;
 }
