@@ -7,11 +7,6 @@ import ImagePreview from "./components/ImagePreview/ImagePreview";
 
 export default function Home() {
   const [file, setFile] = useState<File>();
-
-  const onClearMetadata = () => {
-    console.log("Metadata cleared");
-  };
-
   return (
     <main className={styles.main}>
       <h1 className={styles.title}>CleanPic</h1>
@@ -21,7 +16,7 @@ export default function Home() {
         reduce the image file size.
       </p>
       <FileUpload setFile={setFile} />
-      {file && <ImagePreview file={file} onClearMetadata={onClearMetadata} />}
+      {file && <ImagePreview file={file} />}
       <div className={styles.howtouse}>
         <h2 className={styles.howtouseTitle}>
           How to use CleanPic to remove EXIF metadata from your photos and
