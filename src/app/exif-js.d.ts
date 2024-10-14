@@ -1,7 +1,6 @@
-declare module 'exif-js' {
-    export function getData(_img: any, callback: () => void): void;
-    export function getTag(_img: any, tag: string): any;
-    export function getAllTags(_img: any): Record<string, any>;
-    export function readFromBinaryFile(file: ArrayBuffer): any;
+declare module "exif-js" {
+  export function getData(_img: File, callback: () => void): void;
+  export function getTag(_img: File, tag: string): string | undefined;
+  export function getAllTags(_img: File): Record<string, string | undefined>;
+  export function readFromBinaryFile(file: ArrayBuffer): void;
 }
-  
